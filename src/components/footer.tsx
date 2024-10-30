@@ -91,7 +91,6 @@ export default function Footer() {
               {socialLinks.map((social) => (
                 <Link
                   key={social.name}
-                  href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-[#D4B595] transition-colors"
@@ -110,7 +109,7 @@ export default function Footer() {
               {footerSections.expertise.links.map((link) => (
                 <li key={link.name}>
                   <Link
-                    href={link.href}
+                   
                     className="text-gray-400 hover:text-[#D4B595] transition-colors text-sm flex items-center gap-1"
                   >
                     {link.name}
@@ -127,7 +126,7 @@ export default function Footer() {
               {footerSections.resources.links.map((link) => (
                 <li key={link.name}>
                   <Link
-                    href={link.href}
+                
                     className="text-gray-400 hover:text-[#D4B595] transition-colors text-sm flex items-center gap-1"
                   >
                     {link.name}
@@ -143,8 +142,7 @@ export default function Footer() {
             <div className="space-y-4">
               <p className="text-gray-400 text-sm">Have a project in mind? Let's create something amazing together.</p>
               <Button
-                as={Link}
-                href="/contact"
+              
                 color="primary"
                 className="text-background w-full sm:w-auto group"
                 endContent={<FaArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}

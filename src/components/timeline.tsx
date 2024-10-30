@@ -3,11 +3,10 @@
 "use client";
 
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
 
-export default function Component() {
+export default function Timeline() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -79,21 +78,21 @@ export default function Component() {
   ];
 
   return (
-    <div className="bg-[#000000]">
-      <div className="w-full max-w-4xl mx-auto px-4 py-12 ">
+    <div className="bg-background">
+      <div className="w-full max-w-4xl mx-auto px-4 py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16 space-y-2"
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#D4B595]">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-primary">
             Your Website
           </h1>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-[#D4B595] italic">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-primary italic">
             in 5 steps
           </h2>
-          <p className="text-gray-400 mt-4">
+          <p className="text-white mt-4">
             Our process ensures that we create a website tailored to your
             business goals
           </p>
@@ -101,11 +100,11 @@ export default function Component() {
 
         <div className="relative" ref={containerRef}>
           {/* Background line */}
-          <div className="absolute left-4 md:left-1/2 h-full w-0.5 bg-gray-700 -translate-x-1/2" />
+          <div className="absolute left-4 md:left-1/2 h-full w-0.5 bg-foreground -translate-x-1/2" />
 
           {/* Progress line */}
           <motion.div
-            className="absolute left-4 md:left-1/2 h-full w-0.5 bg-[#D4B595] -translate-x-1/2 origin-top"
+            className="absolute left-4 md:left-1/2 h-full w-0.5 bg-primary -translate-x-1/2 origin-top"
             style={{ scaleY: scaleY }}
           />
 
@@ -113,7 +112,7 @@ export default function Component() {
           {timelineSteps.map((_, index) => (
             <motion.div
               key={index}
-              className="absolute left-4 md:left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-black border-2 border-gray-700 flex items-center justify-center"
+              className="absolute left-4 md:left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-foreground border-2 border-gray-700 flex items-center justify-center"
               style={{
                 top: `${(index * 100) / (timelineSteps.length - 1)}%`,
                 borderColor: useTransform(
@@ -124,7 +123,6 @@ export default function Component() {
                   ],
                   ["rgb(55, 65, 81)", "rgb(212, 181, 149)"]
                 ),
-                // eslint-disable-next-line react-hooks/rules-of-hooks
                 backgroundColor: useTransform(
                   scaleY,
                   [
@@ -153,9 +151,11 @@ export default function Component() {
             </motion.div>
           ))}
 
-          {timelineSteps.map((item, index) => (
-            <TimelineItem key={item.step} item={item} index={index} />
-          ))}
+          <div className="space-y-12 md:space-y-24">
+            {timelineSteps.map((item, index) => (
+              <TimelineItem key={item.step} item={item} index={index} />
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -176,26 +176,27 @@ function TimelineItem({ item, index }: { item: any; index: number }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: isInView ? 1 : 0 }}
       transition={{ duration: 0.5 }}
-      className={`mb-12 md:mb-24 relative ${
-        index % 2 === 0 ? "md:ml-[50%] md:pl-12" : "md:mr-[50%] md:pr-12"
+      className={`relative pl-8 ${
+        index % 2 === 0
+          ? "md:ml-[50%] md:pl-16"
+          : "md:mr-[50%] md:pr-16 md:text-right"
       }`}
-      style={{ marginTop: index === 0 ? "0" : "2rem" }}
     >
-      <Card className="w-full bg-[#1C1C1C] shadow-xl">
+      <Card className="w-full md:max-w-[calc(100%-3rem)] bg-foreground shadow-xl">
         <CardHeader className="pb-0">
           <div className="space-y-2">
-            <span className="text-xs text-gray-400">{item.duration}</span>
-            <h3 className="text-lg font-medium uppercase text-white">
+            <span className="text-xs text-primary font-open-sans">{item.duration}</span>
+            <h3 className="text-lg font-medium uppercase text-primary font-open-sans">
               {item.title}
             </h3>
           </div>
         </CardHeader>
-        <CardBody className="text-gray-300">
+        <CardBody className="text-gray-300 font-lora">
           <p className="text-sm mb-4">{item.content}</p>
-          <ul className="space-y-2">
+          <ul className={`space-y-2 ${index % 2 !== 0 ? "md:text-right" : ""}`}>
             {item.bullets.map((bullet: string, i: number) => (
               <li key={i} className="text-sm flex items-start">
-                <span className="mr-2">•</span>
+                <span className="mr-2 text-primary">•</span>
                 {bullet}
               </li>
             ))}
