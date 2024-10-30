@@ -8,8 +8,7 @@ import {
   FaGithub, 
   FaLinkedinIn, 
   FaTwitter, 
-  FaDribbble,
-  FaBehance,
+
   FaArrowRight
 } from "react-icons/fa"
 import { MdEmail } from "react-icons/md"
@@ -41,12 +40,10 @@ export default function Footer() {
   }
 
   const socialLinks = [
-    { name: "GitHub", icon: FaGithub, href: "https://github.com" },
+    { name: "GitHub", icon: FaGithub, href: "https://github.com/Ankijit2" },
     { name: "LinkedIn", icon: FaLinkedinIn, href: "https://linkedin.com" },
-    { name: "Twitter", icon: FaTwitter, href: "https://twitter.com" },
-    { name: "Dribbble", icon: FaDribbble, href: "https://dribbble.com" },
-    { name: "Behance", icon: FaBehance, href: "https://behance.net" },
-    { name: "Email", icon: MdEmail, href: "mailto:contact@codecanvas.dev" },
+    { name: "Twitter", icon: FaTwitter, href: "https://x.com/AnkijitR26908" },
+    { name: "Email", icon: MdEmail, href: "ankijitroy15@gmail.com" },
   ]
 
   const containerVariants = {
@@ -91,6 +88,7 @@ export default function Footer() {
               {socialLinks.map((social) => (
                 <Link
                   key={social.name}
+                  href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-[#D4B595] transition-colors"
@@ -153,9 +151,9 @@ export default function Footer() {
             <div className="text-sm text-gray-400 space-y-2">
               <p className="flex items-center gap-2">
                 <MdEmail className="w-4 h-4" />
-                contact@codecanvas.dev
+                {socialLinks[3].href}
               </p>
-              <p>San Francisco, CA</p>
+              <p>Assam,India</p>
             </div>
           </motion.div>
         </div>
@@ -169,10 +167,10 @@ export default function Footer() {
             © {new Date().getFullYear()} Code Canvas. All rights reserved.
           </p>
           <div className="mt-4 sm:mt-0 space-x-6 text-sm text-gray-400">
-            <Link href="/privacy" className="hover:text-[#D4B595] transition-colors">
+            <Link  className="hover:text-[#D4B595] transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-[#D4B595] transition-colors">
+            <Link  className="hover:text-[#D4B595] transition-colors">
               Terms of Service
             </Link>
           </div>
