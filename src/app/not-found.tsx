@@ -1,3 +1,4 @@
+
 "use client"
 
 import { Button } from "@nextui-org/react"
@@ -51,7 +52,7 @@ export default function NotFound() {
             Oops! Page Not Found
           </h1>
           <p className="text-gray-400 text-lg max-w-md mx-auto">
-            The page you're looking for seems to have wandered off into the digital void.
+            The page you&apos;re looking for seems to have wandered off into the digital void.
           </p>
         </div>
 
