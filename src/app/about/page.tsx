@@ -14,7 +14,6 @@ import {
   FaDocker, 
   FaPython, 
   FaAngular,
-  FaBootstrap,
   FaFigma,
   FaAws,
   FaCode,
