@@ -11,7 +11,7 @@ function Service() {
       heading: "Website Design",
       description:
         "Custom, responsive web design that aligns with your brand's identity, crafted for seamless user experiences.",
-      price: "$1000 - $3000",
+      price: "₹50,000 - ₹2,00,000",
       features: [
         "Custom design mockups",
         "Mobile-first responsive layouts",
@@ -24,7 +24,7 @@ function Service() {
       heading: "E-commerce Development",
       description:
         "End-to-end e-commerce solutions, from storefront design to checkout, to grow your online sales.",
-      price: "$3000 - $8000",
+      price: "₹2,00,000 - ₹6,00,000",
       features: [
         "Custom storefront design",
         "Product management system",
@@ -37,7 +37,7 @@ function Service() {
       heading: "SEO Optimization",
       description:
         "Search engine optimization to increase your website's visibility and drive organic traffic.",
-      price: "$500 - $1500",
+      price: "₹20,000 - ₹1,00,000",
       features: [
         "Keyword research and targeting",
         "On-page optimization",
@@ -50,7 +50,7 @@ function Service() {
       heading: "Web Application Development",
       description:
         "Custom web applications built to scale, providing advanced functionality and user engagement.",
-      price: "$5000+",
+      price: "₹4,00,000+",
       features: [
         "Custom backend development",
         "API integration",
@@ -63,7 +63,7 @@ function Service() {
       heading: "Maintenance and Support",
       description:
         "Ongoing support to keep your website updated, secure, and performing optimally.",
-      price: "$200 - $500 per month",
+      price: "₹10,000 - ₹40,000 per month",
       features: [
         "Regular updates and security patches",
         "Performance monitoring",
@@ -76,7 +76,7 @@ function Service() {
       heading: "Content Management Systems",
       description:
         "CMS integration for easy website management and content updates, allowing your team to control site content effortlessly.",
-      price: "$1500 - $4000",
+      price: "₹1,00,000 - ₹3,00,000",
       features: [
         "Custom CMS setup",
         "User-friendly interface",
@@ -86,6 +86,7 @@ function Service() {
       ],
     },
   ];
+  
 
   const container = {
     hidden: { opacity: 0 },
@@ -103,7 +104,7 @@ function Service() {
   };
 
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <section className="min-h-screen bg-background pb-20">
       <Timeline />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -161,7 +162,7 @@ function Service() {
           ))}
         </motion.div>
       </motion.div>
-    </div>
+    </section>
   );
 }
 

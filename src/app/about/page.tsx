@@ -120,7 +120,7 @@ function About() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-4 md:p-8">
+    <section className="min-h-screen bg-background p-4 md:p-8">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -270,7 +270,7 @@ function About() {
           </motion.div>
         </div>
       </motion.div>
-    </div>
+    </section>
   );
 }
 

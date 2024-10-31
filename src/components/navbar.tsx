@@ -161,8 +161,9 @@ function MyNavbar() {
                       >
                         <Button 
                           color="primary" 
-                          className="text-background w-full"
-                          size="sm"
+                          className="text-background"
+                          size="lg"
+                          
                         >
                           {item.name}
                         </Button>

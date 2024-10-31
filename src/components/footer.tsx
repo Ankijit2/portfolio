@@ -8,6 +8,7 @@ import {
   FaGithub, 
   FaLinkedinIn, 
   FaTwitter, 
+  FaInstagram,
 
   FaArrowRight
 } from "react-icons/fa"
@@ -41,9 +42,9 @@ export default function Footer() {
 
   const socialLinks = [
     { name: "GitHub", icon: FaGithub, href: "https://github.com/Ankijit2" },
-    { name: "LinkedIn", icon: FaLinkedinIn, href: "https://linkedin.com" },
+    { name: "LinkedIn", icon: FaLinkedinIn, href: "https://www.linkedin.com/in/ankijit-roy-642409263/" },
     { name: "Twitter", icon: FaTwitter, href: "https://x.com/AnkijitR26908" },
-    { name: "Email", icon: MdEmail, href: "ankijitroy15@gmail.com" },
+    { name: "Instagram", icon: FaInstagram, href: "https://www.instagram.com/ankijit_roy/" },
   ]
 
   const containerVariants = {
@@ -151,7 +152,7 @@ export default function Footer() {
             <div className="text-sm text-gray-400 space-y-2">
               <p className="flex items-center gap-2">
                 <MdEmail className="w-4 h-4" />
-                {socialLinks[3].href}
+                ankijitroy15@gmail.com
               </p>
               <p>Assam,India</p>
             </div>
