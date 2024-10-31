@@ -9,13 +9,16 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   NavbarMenuToggle,
-  Link,
+
   Button,
 } from "@nextui-org/react"
 import { motion, AnimatePresence } from "framer-motion"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 function MyNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const Router = useRouter()
 
   const navbarItems = [
     { name: "Home", link: "/" },
@@ -76,15 +79,16 @@ function MyNavbar() {
           {navbarItems.map((item) => (
             <NavbarItem key={item.name}>
               {item.isButton ? (
-                <Link href={item.link}>
+                
                   <Button 
                     color="primary" 
                     className="text-background"
+                    onClick={() => Router.push(item.link)}
                     size="md"
                   >
                     {item.name}
                   </Button>
-                </Link>
+                
               ) : (
                 <Link 
                   href={item.link}
@@ -154,25 +158,22 @@ function MyNavbar() {
                     animate="visible"
                   >
                     {item.isButton ? (
-                      <Link
-                        href={item.link}
-                        className="w-full block"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
+                
                         <Button 
                           color="primary" 
-                          className="text-background"
+                          className="text-background w-full"
                           size="lg"
+                          onClick={()=>Router.push(item.link)}
                           
                         >
                           {item.name}
                         </Button>
-                      </Link>
+                      
                     ) : (
                       <Link
                         href={item.link}
                         className="w-full text-primary hover:text-primary/80 transition-colors text-lg py-2 px-2 block"
-                        onClick={() => setIsMenuOpen(false)}
+                      
                       >
                         {item.name}
                       </Link>

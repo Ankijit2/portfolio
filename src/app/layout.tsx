@@ -4,6 +4,7 @@ import { Providers } from "../providers/providers";
 import { lora,openSans } from "./fonts/font";
 import MyNavbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import NextTopLoader from 'nextjs-toploader';
 
 
 
@@ -25,6 +26,7 @@ export default function RootLayout({
       >
         
         <Providers>
+        <NextTopLoader color="#DAC5A7" showSpinner={false}/>
             <MyNavbar/>
             <div className="md:min-h-[60vh]">
         {children}

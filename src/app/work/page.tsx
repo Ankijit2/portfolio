@@ -3,7 +3,8 @@
 import React from 'react'
 import { motion } from "framer-motion"
 import NextImage from 'next/image'
-import { Card, CardBody, CardFooter, Button, Link } from '@nextui-org/react'
+import { Card, CardBody, CardFooter, Button} from '@nextui-org/react'
+import Link from 'next/link'
 
 const projects = [
   {
