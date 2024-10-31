@@ -9,46 +9,26 @@ import Link from 'next/link'
 const projects = [
   {
     id: 1,
-    title: "E-commerce Platform",
-    description: "A fully responsive e-commerce platform built with Next.js and Stripe integration.",
+    title: "Connexa App",
+    description: "An automated sales application for efficient sales and marketing automation along with ease of people finding",
     image: "/placeholder.svg?height=300&width=400",
-    link: "/projects/e-commerce"
+    link: "https://connexa.space/"
   },
   {
     id: 2,
-    title: "Portfolio Website",
-    description: "A sleek, animated portfolio website showcasing creative works and skills.",
+    title: "Bingeee An ai chat application",
+    description: "A chatbot built using the OpenAI API. It is designed to be user-friendly and easy to use it provdie advance features like image sending and voice recording along with creating groups",
     image: "/placeholder.svg?height=300&width=400",
-    link: "/projects/portfolio"
+    link: "https://bingee-azure.vercel.app/"
   },
   {
     id: 3,
-    title: "Task Management App",
-    description: "A feature-rich task management application with real-time updates and team collaboration.",
+    title: "skillero(in development)",
+    description: "A futuristic platform where finding your dream job and enrolling in the necessary courses go hand-in-hand, seamlessly merging career goals with educational pathways",
     image: "/placeholder.svg?height=300&width=400",
-    link: "/projects/task-manager"
+    link: "https://skillero.vercel.app/"
   },
-  {
-    id: 4,
-    title: "Weather Dashboard",
-    description: "An interactive weather dashboard with location-based forecasts and historical data visualization.",
-    image: "/placeholder.svg?height=300&width=400",
-    link: "/projects/weather-dashboard"
-  },
-  {
-    id: 5,
-    title: "Social Media Analytics",
-    description: "A comprehensive analytics tool for tracking and visualizing social media engagement and growth.",
-    image: "/placeholder.svg?height=300&width=400",
-    link: "/projects/social-analytics"
-  },
-  {
-    id: 6,
-    title: "Fitness Tracking App",
-    description: "A mobile-first fitness tracking application with personalized workout plans and progress tracking.",
-    image: "/placeholder.svg?height=300&width=400",
-    link: "/projects/fitness-app"
-  }
+ 
 ]
 
 const containerVariants = {

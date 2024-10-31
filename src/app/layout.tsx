@@ -11,6 +11,9 @@ import NextTopLoader from 'nextjs-toploader';
 export const metadata: Metadata = {
   title: "The code Canvas",
   description: "The Code Canvas is a web development agency dedicated to crafting innovative, high-performance websites. Our team specializes in custom solutions tailored to elevate your brand's online presence. Discover how The Code Canvas can bring your vision to life.",
+  icons: {
+    icon:"/favicon.svg"
+  }
 };
 
 export default function RootLayout({
