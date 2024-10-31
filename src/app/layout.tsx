@@ -5,14 +5,14 @@ import { lora,openSans } from "./fonts/font";
 import MyNavbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import NextTopLoader from 'nextjs-toploader';
-
+import { Toaster } from 'react-hot-toast';
 
 
 export const metadata: Metadata = {
   title: "The code Canvas",
   description: "The Code Canvas is a web development agency dedicated to crafting innovative, high-performance websites. Our team specializes in custom solutions tailored to elevate your brand's online presence. Discover how The Code Canvas can bring your vision to life.",
   icons: {
-    icon:"/favicon.svg"
+    icon:"/favicon.svg",
   }
 };
 
@@ -33,6 +33,7 @@ export default function RootLayout({
             <MyNavbar/>
             <div className="md:min-h-[60vh]">
         {children}
+        <Toaster/>
         </div>
         <Footer/>
         </Providers>

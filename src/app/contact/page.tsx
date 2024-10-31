@@ -1,17 +1,73 @@
-"use client"
+'use client'
 
 import React from 'react'
 import { motion } from "framer-motion"
 import NextImage from 'next/image'
 import { Image, Card, CardHeader, CardBody, CardFooter, Button, Input, Textarea } from '@nextui-org/react'
-import { FaLinkedin, FaTwitter, FaInstagram, FaGithub } from 'react-icons/fa'
+import { FaLinkedin, FaTwitter, FaInstagram, } from 'react-icons/fa'
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import * as z from "zod"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form"
+import axios from "axios"
+import toast from 'react-hot-toast'
 
-function ContactPage() {
+
+
+const formSchema = z.object({
+  name: z.string().min(2, {
+    message: "Name must be at least 2 characters.",
+  }),
+  email: z.string().email({
+    message: "Please enter a valid email address.",
+  }),
+  subject: z.string().min(10, {
+    message: "Subject must be at least 10 characters.",
+  }).max(100, {
+    message: "Subject cannot exceed 100 characters.",
+  }),
+  description: z.string().min(10, {
+    message: "Description must be at least 10 characters.",
+  }),
+});
+
+export default function ContactPage() {
+  
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      description: "",
+    },
+  })
+
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+  
+    await toast.promise(
+        axios.post('/api/email', values),
+        {
+          loading: 'Sending email...',
+          success: 'Email sent successfully',
+          error: 'Failed to send email. Please try again.',
+        }
+      );
+      form.reset()
+     
+    // Handle form submission
+  }
+
   const socialLinks = [
-    { icon: FaLinkedin, href: "https://linkedin.com/in/yourprofile", label: "LinkedIn" },
-    { icon: FaTwitter, href: "https://twitter.com/yourhandle", label: "Twitter" },
-    { icon: FaInstagram, href: "https://instagram.com/yourprofile", label: "Instagram" },
-    { icon: FaGithub, href: "https://github.com/yourusername", label: "GitHub" },
+    { icon: FaLinkedin, href: "https://www.linkedin.com/in/ankijit-roy-642409263/", label: "LinkedIn" },
+    { icon: FaTwitter, href: "https://x.com/AnkijitR26908", label: "Twitter" },
+    { icon: FaInstagram, href: "https://www.instagram.com/ankijit_roy/", label: "Instagram" },
   ]
 
   return (
@@ -42,37 +98,88 @@ function ContactPage() {
               <h2 className="text-2xl text-primary font-bold">Get in Touch</h2>
             </CardHeader>
             <CardBody>
-              <form className="space-y-6">
-                <Input
-
-                  placeholder="Enter your name"
-                  variant="bordered"
-                  isRequired
-                  labelPlacement='outside'
-                   className='text-primary'
-                />
-                <Input
-              
-                  placeholder="Enter your email"
-                  labelPlacement='outside'
-                  type="email"
-                  variant="bordered"
-                  isRequired
-                   className='text-primary '
-                />
-                <Textarea
-                
-                  placeholder="Tell us about your project"
-                  variant="bordered"
-                  labelPlacement='outside'
-                  minRows={4}
-                  isRequired
-                  className='text-primary'
-                />
-                <Button color="primary" type="submit" className="w-full">
-                  Send Message
-                </Button>
-              </form>
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field,fieldState }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            placeholder="Enter your name"
+                            variant="bordered"
+                            labelPlacement="outside"
+                            className="text-primary"
+                          />
+                        </FormControl>
+                        <FormMessage>{fieldState.error?.message}</FormMessage>
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field,fieldState }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            placeholder="Enter your email"
+                            type="email"
+                            variant="bordered"
+                            labelPlacement="outside"
+                            className="text-primary"
+                          />
+                        </FormControl>
+                        <FormMessage >{fieldState.error?.message}</FormMessage>
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="subject"
+                    render={({ field,fieldState }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            placeholder="Give us your requirement"
+    
+                            variant="bordered"
+                            labelPlacement="outside"
+                            className="text-primary"
+                          />
+                        </FormControl>
+                        <FormMessage >{fieldState.error?.message}</FormMessage>
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="description"
+                    render={({ field,fieldState }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Textarea
+                            {...field}
+                            placeholder="Give us the description of your requirement"
+                            variant="bordered"
+                            labelPlacement="outside"
+                            minRows={4}
+                            className="text-primary"
+                          />
+                        </FormControl>
+                        <FormMessage>{fieldState.error?.message}</FormMessage>
+                      </FormItem>
+                    )}
+                  />
+                  <Button disabled={form.formState.isSubmitting} color="primary" type="submit" className="w-full">
+                    Send Message
+                  </Button>
+                </form>
+              </Form>
             </CardBody>
             <CardFooter>
               <div className="w-full">
@@ -101,5 +208,3 @@ function ContactPage() {
     </section>
   )
 }
-
-export default ContactPage

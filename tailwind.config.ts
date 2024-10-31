@@ -9,22 +9,24 @@ const config: Config = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        background: "var(--color-background)",
-        foreground: "var(--color-foreground)",
-        primary: "var(--color-primary)",
-
-      },
-      fontFamily:{
-      
-          'open-sans': ['var(--font-open-sans)', 'sans-serif'], // Use the CSS variable
-          'lora': ['var(--font-lora)', 'serif'], // Use the CSS variable
-   
-      }
-    },
+  	extend: {
+  		colors: {
+  			background: 'var(--color-background)',
+  			foreground: 'var(--color-foreground)',
+  			primary: 'var(--color-primary)'
+  		},
+  		fontFamily: {
+  			'open-sans': ['var(--font-open-sans)', 'sans-serif'],
+  			lora: ['var(--font-lora)', 'serif']
+  		},
+  		borderRadius: {
+  			lg: 'var(--radius)',
+  			md: 'calc(var(--radius) - 2px)',
+  			sm: 'calc(var(--radius) - 4px)'
+  		}
+  	}
   },
-  darkMode: "class",
-  plugins: [nextui()]
+  darkMode: ["class"],
+  plugins: [nextui(), require("tailwindcss-animate")]
 };
 export default config;
