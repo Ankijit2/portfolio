@@ -6,6 +6,7 @@ import MyNavbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import NextTopLoader from 'nextjs-toploader';
 import { Toaster } from 'react-hot-toast';
+import QueryProvider from "@/lib/query-client";
 
 
 export const metadata: Metadata = {
@@ -27,7 +28,7 @@ export default function RootLayout({
       <body
       className="bg-background min-h-screen flex-col flex"
       >
-        
+        <QueryProvider>
         <Providers>
         <NextTopLoader color="#DAC5A7" showSpinner={false}/>
             <MyNavbar/>
@@ -37,6 +38,7 @@ export default function RootLayout({
         </div>
         <Footer/>
         </Providers>
+        </QueryProvider>
       </body>
     </html>
   );

@@ -41,3 +41,6 @@ html {
   }
 }
 
+.prose p {
+  color: white; /* or use text-white if using Tailwind CSS */
+}
