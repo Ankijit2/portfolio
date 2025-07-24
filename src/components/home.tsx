@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import FloatingOrbs from "./floating-orb";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
@@ -61,6 +62,7 @@ const HeroSection = () => {
             transition={{ delay: 1.2, duration: 0.6 }}
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
+            <Link href={"/contact"}>
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -68,14 +70,20 @@ const HeroSection = () => {
             >
               Start Your Journey
             </motion.button>
-            
-            <motion.button
+            </Link>
+
+            <Link href={"/work"}>
+             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="px-8 py-4 border border-primary text-primary font-inter font-semibold rounded-lg bg-primary/5 hover:bg-primary/10 transition-all duration-300"
             >
               View Our Work
             </motion.button>
+            
+            </Link>
+            
+           
           </motion.div>
         </div>
       </div>
