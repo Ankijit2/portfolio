@@ -36,33 +36,38 @@ import {
   SiCplusplus,
   SiJira
 } from "react-icons/si";
+import { GrGraphQl } from "react-icons/gr";
+import { TbBrandReactNative } from "react-icons/tb";
 
 function About() {
   const workExperience = [
-    {
-      company: "Connexa Technologies",
-      role: "Web Developer",
-      period: "June 2024 - Present",
-      achievements: [
-        "Engineered robust backend systems with Next.js and TypeScript, enhancing system performance",
-        "Implemented dynamic search functionality, improving accuracy by 35%",
-        "Integrated AI for personalized email generation",
-        "Developed comprehensive UI with Tailwind CSS and shadcn UI, increasing user engagement by 22%",
-        "Managed cloud deployment using AWS, Docker, and Kubernetes",
-        "Reduced load times by 25% through system integration",
-        "Led version control and project management efforts, reducing code conflicts by 40%"
-      ]
-    },
-    {
-      company: "Octanet Technologies",
-      role: "Web Development Intern",
-      period: "March 2024 - April 2024",
-      achievements: [
-        "Created responsive UI for food website, reducing ordering time by 18%",
-        "Developed task management app improving productivity by 35%"
-      ]
-    }
-  ];
+  {
+    company: "Connexa Technologies",
+    role: "Full Stack Engineer",
+    period: "June 2023 - December 2024",
+    achievements: [
+      "Engineered robust backend systems using Next.js and TypeScript, enhancing system performance and maintainability.",
+      "Implemented dynamic search functionality, improving search accuracy by 35%.",
+      "Integrated AI for personalized email generation, automating outreach and saving manual effort.",
+      "Developed a modern, responsive UI using Tailwind CSS and shadcn/ui, increasing user engagement by 22%.",
+      "Managed end-to-end cloud deployment with AWS, Docker, and Kubernetes, improving scalability and reliability.",
+      "Reduced load times by 25% through optimized system integration and API refactoring.",
+      "Led version control and streamlined project workflows using Git and GitHub, reducing code conflicts by 40%."
+    ]
+  },
+  {
+    company: "Stackkaroo",
+    role: "Full Stack Developer",
+    period: "Dec 2024 - Ongoing",
+    achievements: [
+      "Orchestrated the launch of Hub4Media’s agency management dashboard using Next.js and NestJS, cutting publishing time by 30% through optimized editorial workflows.",
+      "Spearheaded the development of Indian Municipal Bond platform interface, achieving a 35% faster page load and 20% uplift in daily active sessions via Next.js and TypeScript optimizations.",
+      "Conceptualized and shipped ROI Magnet, a Shopify-integrated WhatsApp marketing solution with Razorpay, GA4, Meta Pixel, and custom analytics links—boosting campaign ROIs by 25%.",
+      "Designed event-driven services with NestJS, GraphQL, Redis, and BullMQ, maintaining 99.9% uptime while handling 10K+ events/minute."
+    ]
+  }
+];
+
 
   const skillsData = {
     icon: <FaLaptopCode className="size-6" />,
@@ -76,6 +81,7 @@ function About() {
           { name: "CSS", icon: <FaCss3Alt className="size-8" /> },
           { name: "TypeScript", icon: <SiTypescript className="size-8" /> },
           { name: "React.js", icon: <FaReact className="size-8" /> },
+          {name:"React Native", icon: <TbBrandReactNative className="size-8" />},
           { name: "Next.js", icon: <SiNextdotjs className="size-8" /> },
           { name: "Angular", icon: <FaAngular className="size-8" /> },
           { name: "jQuery", icon: <SiJquery className="size-8" /> },
@@ -92,6 +98,8 @@ function About() {
           { name: "PostgreSQL", icon: <SiPostgresql className="size-8" /> },
           { name: "MongoDB", icon: <SiMongodb className="size-8" /> },
           { name: "Django", icon: <SiDjango className="size-8" /> },
+          { name: "Nest.js", icon: <SiNextdotjs className="size-8" /> },
+          { name: "GraphQL", icon: <GrGraphQl className="size-8" /> },
         ],
       },
       {
@@ -104,6 +112,7 @@ function About() {
           { name: "Kubernetes", icon: <SiKubernetes className="size-8" /> },
           { name: "AWS", icon: <FaAws className="size-8" /> },
           { name: "Jira", icon: <SiJira className="size-8" /> },
+
           
         ],
       },
@@ -166,10 +175,10 @@ function About() {
                   />
                 </div>
                 <p className="text-lg leading-relaxed text-white">
-                The Code Canvas is led by Ankijit Roy, an experienced web developer passionate about crafting high-quality digital solutions. With a strong background in full-stack development, Ankijit specializes in building responsive, high-performance web applications that prioritize user experience and efficiency.
+            The Code Canvas is driven by Ankijit Roy, a full-stack developer focused on delivering clean, scalable, and impactful web applications. Ankijit brings a strong foundation in Next.js, TypeScript, MongoDB, Prisma, AWS, and Docker, with a sharp eye for performance and UX.
                 </p>
                 <p className="text-lg leading-relaxed text-white">
-                Through his work with Connexa Technologies and projects like an AI-driven marketing platform and real-time chat applications, Ankijit has honed expertise in tools like Next.js, TypeScript, AWS, and Docker. Each project at The Code Canvas reflects a commitment to innovation, optimization, and impactful design, transforming complex challenges into intuitive solutions tailored to client needs.
+              His work spans AI-powered platforms like Connexa Technologies, dynamic e-commerce sites such as ARvan and RaasCreation, and public-sector data tools like India Municipal Bonds. From real-time chat systems to smart lead-generation engines, every project reflects a commitment to modern architecture, efficient coding, and results-driven design—turning business ideas into seamless digital experiences.
                 </p>
 
                 <Accordion 
@@ -196,7 +205,7 @@ function About() {
                         transition={{ delay: index * 0.1 }}
                         className="mb-6 last:mb-0"
                       >
-                        <div className="flex items-start gap-3 mb-3 ">
+                        <div className="flex items-start gap-3 mb-5 ">
                           <FaBuilding className="size-6 mt-1 text-primary" />
                           <div>
                             <h3 className="text-xl font-semibold text-primary">{job.company}</h3>
@@ -204,7 +213,7 @@ function About() {
                           </div>
                         </div>
                         <ul className="space-y-2 pl-9 text-white">
-                          {job.achievements.map((achievement, i) => (
+                          {job?.achievements?.map((achievement, i) => (
                             <li key={i} className="text-sm text-primary/80 list-disc">
                               {achievement}
                             </li>

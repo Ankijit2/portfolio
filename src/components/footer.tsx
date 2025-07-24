@@ -30,7 +30,7 @@ export default function Footer() {
       ],
     },
     resources: {
-      title: "Resources",
+      title: "Future Resources",
       links: [
         { name: "Case Studies", href: "/resources/case-studies" },
         { name: "Blog", href: "/blog" },
@@ -160,22 +160,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <motion.div
-          variants={itemVariants}
-          className="mt-12 pt-8 border-t border-gray-800 text-center sm:flex sm:justify-between sm:text-left"
-        >
-          <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} Code Canvas. All rights reserved.
-          </p>
-          <div className="mt-4 sm:mt-0 space-x-6 text-sm text-gray-400">
-            <Link  className="hover:text-[#D4B595] transition-colors">
-              Privacy Policy
-            </Link>
-            <Link  className="hover:text-[#D4B595] transition-colors">
-              Terms of Service
-            </Link>
-          </div>
-        </motion.div>
+   
       </motion.div>
     </footer>
   )

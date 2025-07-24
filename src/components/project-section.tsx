@@ -2,7 +2,7 @@
 import React from 'react'
 import NextImage from 'next/image'
 import { Card, CardBody, CardFooter, Button } from '@nextui-org/react'
-import Link from 'next/link'
+
 import { Project } from '@prisma/client'
 import { motion } from 'framer-motion'
 
@@ -42,7 +42,7 @@ export default function ProjectCard({ProjectData,title}:{ProjectData:Project[],t
           animate="visible"
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 mb-12"
         >
-          {ProjectData.map((project) => (
+          {ProjectData?.map((project) => (
             <motion.div key={project.id} variants={itemVariants}>
               <Card className="h-full bg-foreground">
                 <CardBody className="p-0">
@@ -60,8 +60,8 @@ export default function ProjectCard({ProjectData,title}:{ProjectData:Project[],t
                 </CardBody>
                 <CardFooter className="flex justify-between gap-3">
   
-                 <a href={`${project.link}`} className='w-full' target='blank'><Button className='bg-primary text-white w-full'>Link</Button></a>
-                  {project.case_study_included && <Button as={Link} href={`work/${project.id}`} className='bg-primary text-white w-full'>View Case Study</Button>}
+                 <a href={`${project.link}`}  className='w-full' target='blank'><Button className='bg-primary text-white w-full'>Link</Button></a>
+                 
                 </CardFooter>
               </Card>
             </motion.div>

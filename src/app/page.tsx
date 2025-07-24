@@ -1,12 +1,11 @@
-
-import Digitalart from "@/components/hero section";
+import HeroSection from "@/components/home";
 
 
 export default function Home() {
   return (
 
    
-   <Digitalart/>
+  <HeroSection/>
    
   
 

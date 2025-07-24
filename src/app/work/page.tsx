@@ -13,7 +13,7 @@ import ProjectCard from '@/components/project-section'
 
 function WorkPage() {
   const { data, isLoading }= useProjects()
-  console.log(data)
+  console.log(data?.projects)
   if(!data){
     return(
       <div>
@@ -34,10 +34,10 @@ function WorkPage() {
         transition={{ duration: 0.5 }}
         className="text-4xl font-bold text-center mb-12 text-primary"
       >
-        My Work
+        Projects We&apos;ve Worked On
       </motion.h1>
-      <ProjectCard title="Partnered Projects" ProjectData={data.partnered_projects!}  />
-      <ProjectCard title="Personal Solo Projects" ProjectData={data.personal_projects!}  />
+      <ProjectCard title="" ProjectData={data?.projects}  />
+     
     </section>
   )
 }
